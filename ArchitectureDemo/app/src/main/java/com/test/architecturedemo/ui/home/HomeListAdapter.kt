@@ -10,5 +10,4 @@ class HomeListAdapter : BaseListAdapter<String, HomeItemBinding>(
     bindingItemId = BR.data,
     areItemsSameLambda = { oldItem, newItem -> oldItem == newItem},
     areContentsTheSame = { oldItem, newItem -> oldItem == newItem}
-) {
-}
+)

@@ -10,23 +10,17 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import java.util.concurrent.Executors
 
-/*********************************************************
- * Class   :  BaseAdapter
- * Author  :  Arun Nair
- * Created :  12/02/21
- *******************************************************
- * Purpose :  Acts as a baseclass for RecyclerView Adapters
- *******************************************************
- * Rework Details:
- * 1) {Author} :  {Date} : {Details}
- *********************************************************/
 open class BaseListAdapter<ListItemType, ViewBindingType : ViewDataBinding>(
-    private val itemLayoutId : Int,
-    private val bindingItemId : Int,
-    private val bindingMap :HashMap<Int, Any> = HashMap(),
-    areItemsSameLambda : (oldItem: ListItemType, newItem: ListItemType) -> Boolean = { oldItem, newItem -> oldItem?.equals(newItem)?:false },
-    areContentsTheSame : (oldItem: ListItemType, newItem: ListItemType) -> Boolean = { _, _ -> false },
-    diffCallback : DiffUtil.ItemCallback<ListItemType> = object :
+    private val itemLayoutId: Int,
+    private val bindingItemId: Int,
+    private val bindingMap: HashMap<Int, Any> = HashMap(),
+    areItemsSameLambda: (oldItem: ListItemType, newItem: ListItemType) -> Boolean = { oldItem, newItem ->
+        oldItem?.equals(
+            newItem
+        ) ?: false
+    },
+    areContentsTheSame: (oldItem: ListItemType, newItem: ListItemType) -> Boolean = { _, _ -> false },
+    diffCallback: DiffUtil.ItemCallback<ListItemType> = object :
         DiffUtil.ItemCallback<ListItemType>() {
         override fun areItemsTheSame(oldItem: ListItemType, newItem: ListItemType) =
             areItemsSameLambda(oldItem, newItem)

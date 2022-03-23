@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
     @Provides
-    fun provideAnalyticsService(
+    fun provideApiService(
         // Potential dependencies of this type
     ): ApiService {
         return Retrofit.Builder()

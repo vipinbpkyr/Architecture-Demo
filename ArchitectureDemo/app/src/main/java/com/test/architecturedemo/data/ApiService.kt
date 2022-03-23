@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("search/repositories")
-    fun analyticsMethods() : Call<String>
+    fun getCall() : Call<String>
 }

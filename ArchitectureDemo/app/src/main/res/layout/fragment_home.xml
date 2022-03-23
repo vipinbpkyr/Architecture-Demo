@@ -20,8 +20,20 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:padding="4dp"
-            app:bindHomeList="@{viewModel.items}"
+            app:bindHomeList="@{viewModel.uiState.items}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:isVisible= "@{viewModel.uiState.loading}"
+            android:background="@color/white">
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                />
+        </FrameLayout>
     </FrameLayout>
 </layout>

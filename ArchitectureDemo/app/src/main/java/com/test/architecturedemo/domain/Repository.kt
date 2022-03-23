@@ -1,5 +1,5 @@
 package com.test.architecturedemo.domain
 
 interface Repository {
-    fun test() : String
+    suspend fun test() : List<String>
 }
